@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const fs = require('fs')
-
+const webpack = require('webpack');
 
 module.exports = {
   entry: [
@@ -17,57 +17,61 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [{
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src/js'),
-        use: {
-          loader: 'babel-loader',
+      test: /\.js$/,
+      include: path.resolve(__dirname, 'src/js'),
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: 'env'
+        }
+      }
+    },
+    {
+      test: /\.(sass|scss|css)$/,
+      use: ExtractTextPlugin.extract({
+        use: [{
+          loader: "css-loader",
           options: {
-            presets: 'env'
+            sourceMap: true,
+            minimize: true,
+            url: false
+          }
+        },
+        {
+          loader: "sass-loader",
+          options: {
+            sourceMap: true
           }
         }
-      },
-      {
-        test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, 'src/scss'),
-        use: ExtractTextPlugin.extract({
-          use: [{
-              loader: "css-loader",
-              options: {
-                sourceMap: true,
-                minimize: true,
-                url: false
-              }
-            },
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.html$/,
-        include: path.resolve(__dirname, 'src/html/includes'),
-        use: ['raw-loader']
-      },
+        ]
+      })
+    },
+    {
+      test: /\.html$/,
+      include: path.resolve(__dirname, 'src/html/includes'),
+      use: ['raw-loader']
+    },
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     new ExtractTextPlugin({
       filename: './css/style.css',
       allChunks: true,
     }),
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([{
-        from: './src/fonts',
-        to: './fonts'
-      },
-      {
-        from: './src/img',
-        to: './img'
-      }
+      from: './src/fonts',
+      to: './fonts'
+    },
+    {
+      from: './src/img',
+      to: './img'
+    }
     ]),
   ]
 };
