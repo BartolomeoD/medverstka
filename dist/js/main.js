@@ -13409,6 +13409,9 @@ $(document).ready(function () {
             }
         }
     });
+    $(".bot .mobile").click(function (e) {
+        $(this).next().toggleClass("active");
+    });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 

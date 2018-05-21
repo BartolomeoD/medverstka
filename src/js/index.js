@@ -16,4 +16,7 @@ $(document).ready(function () {
             }
         }
     });
+    $(".bot .mobile").click(function (e) {
+		$(this).next().toggleClass("active");
+	})
 });
