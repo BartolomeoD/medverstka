@@ -1,34 +1,3 @@
-import 'owl.carousel/dist/assets/owl.theme.green.css';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
-import 'jquery-mask-plugin';
-
-$(".phone-input").mask("+7 (000) 000-00-00");
-
-$(document).ready(function () {
-    $('.carousel').owlCarousel({
-        items: 2,
-        nav: true,
-        dots: false,
-        responsive: {
-            0:{
-                items: 1
-            },
-            1140 : {
-                items: 2
-            }
-        }
-    });
-    $(".bot .mobile").click(function (e) {
-		$(this).next().toggleClass("active");
-	})
-});
-
-
-$('.open-call-form').click(function (e){
-    openModal($("#call-modal"));
-});
-
 function openModal(modal) {
     //console.log(document.getElementById('blackbg'));
     if ($('#blackbg').length != 0) {
@@ -89,29 +58,3 @@ function closeModal() {
         blackbg.remove();
     });
 }
-
-$("form").on("submit", function(e) {
-    var data = new FormData(this);
-    e.preventDefault();
-    $.ajax({
-        type: 'POST',
-        url: $(this).attr("url"),
-        data: data,
-        processData: false,
-        contentType: false,
-        dataType: "json",
-        success: function(data) {
-        }
-    });
-    openModal($("#success"));
-})
-
-$("a").each(function() {
-    if (document.location.pathname.replace(new RegExp("/",'g'),'').length == 0) {
-        $('a[href="/"]').addClass('active');
-        return false;
-    }
-    if ($(this).attr('href').indexOf(document.location.pathname.replace(new RegExp("/",'g'),'')) != -1) {
-        $(this).addClass('active');
-    }
-})

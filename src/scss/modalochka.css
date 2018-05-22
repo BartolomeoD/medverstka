@@ -1,0 +1,75 @@
+/* modalochka*/
+
+.modal {
+    position: relative;
+    background: white;
+    width: 300px;
+    display: none;
+    z-index: 21;
+    margin: auto auto;
+    opacity: 1;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.modal h2 {
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.modal textarea.input-text {
+    height: 60px;
+    width: 100%;
+    resize: none;
+    font-family: "Ubuntu";
+}
+
+.modal .input-text {
+    width: 100%;
+    margin-bottom: 8px;
+    height: 40px;
+}
+
+.modal .center {
+    text-align: center;
+    line-height: 125px;
+    width: 100%;
+}
+.black-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, .7);
+    text-align: center;
+}
+
+.black-bg:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+}
+
+.show-modal {
+    vertical-align: middle;
+    display: inline-block;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: -55px;
+    display: block;
+    width: 27px;
+    height: 27px;
+    text-indent: -9999px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbEAQAAAB3TeCdAAAACXBIWXMAAAsTAAALEwEAmpwYAAADGGlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjaY2BgnuDo4uTKJMDAUFBUUuQe5BgZERmlwH6egY2BmYGBgYGBITG5uMAxIMCHgYGBIS8/L5UBFTAyMHy7xsDIwMDAcFnX0cXJlYE0wJpcUFTCwMBwgIGBwSgltTiZgYHhCwMDQ3p5SUEJAwNjDAMDg0hSdkEJAwNjAQMDg0h2SJAzAwNjCwMDE09JakUJAwMDg3N+QWVRZnpGiYKhpaWlgmNKflKqQnBlcUlqbrGCZ15yflFBflFiSWoKAwMD1A4GBgYGXpf8EgX3xMw8BSMDVQYqg4jIKAUICxE+CDEESC4tKoMHJQODAIMCgwGDA0MAQyJDPcMChqMMbxjFGV0YSxlXMN5jEmMKYprAdIFZmDmSeSHzGxZLlg6WW6x6rK2s99gs2aaxfWMPZ9/NocTRxfGFM5HzApcj1xZuTe4FPFI8U3mFeCfxCfNN45fhXyygI7BD0FXwilCq0A/hXhEVkb2i4aJfxCaJG4lfkaiQlJM8JpUvLS19QqZMVl32llyfvIv8H4WtioVKekpvldeqFKiaqP5UO6jepRGqqaT5QeuA9iSdVF0rPUG9V/pHDBYY1hrFGNuayJsym740u2C+02KJ5QSrOutcmzjbQDtXe2sHY0cdJzVnJRcFV3k3BXdlD3VPXS8Tbxsfd99gvwT//ID6wIlBS4N3hVwMfRnOFCEXaRUVEV0RMzN2T9yDBLZE3aSw5IaUNak30zkyLDIzs+ZmX8xlz7PPryjYVPiuWLskq3RV2ZsK/cqSql01jLVedVPrHzbqNdU0n22VaytsP9op3VXUfbpXta+x/+5Em0mzJ/+dGj/t8AyNmf2zvs9JmHt6vvmCpYtEFrcu+bYsc/m9lSGrTq9xWbtvveWGbZtMNm/ZarJt+w6rnft3u+45uy9s/4ODOYd+Hmk/Jn58xUnrU+fOJJ/9dX7SRe1LR68kXv13fc5Nm1t379TfU75/4mHeY7En+59lvhB5efB1/lv5dxc+NH0y/fzq64Lv4T8Ffp360/rP8f9/AA0ADzT6lvFdAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAFgSURBVHjarJa9SgNBFIW/HQlCNCDYBUSwDFhtYRNYOyvfIaVdemuxF/IAvoC12K2Q1iowpegDCMGAKLJci3GdZN1N5mcPTDF3hvsxw8zhIAJmTA9EMm3nbYxMm75m/lucjUWKVORz1h4w06ZfkZr+kIjMxjCY8qfvWzjbgscBwco0PBTQGdmaHiroX61u7IzMxky3BzJKRADeFrB3uroUcsLJCVzMIdldreshHN8oM9nvwTyPO+F6EICyxRjgZlAFFgp0A9XAfIHuoAaYK9APtPQam9T0Su9zOJ/4gBxgTcA6rQetucZNV+oPcjxZqfc72Ln+X3/N4ajn0kG5f9juZf1a/8X146twZ/B3GhUG+goCqjAL6j6FWJsKtyB/a1MxXucLVDFe5wtUcSA/oIoHuQMTkTZAy3pewGFtxEhEPlLYph1QqWpiA5jnlXxnM178KLOozaOVQNkWaBlog+/PAC4htw7bCDMHAAAAAElFTkSuQmCC') center center no-repeat;
+}
