@@ -115,3 +115,8 @@ $("a").each(function() {
         $(this).addClass('active');
     }
 })
+
+$(".show-all").click(function(e) {
+    $(this).parent().addClass('show-all');
+    $(this).hide();
+})

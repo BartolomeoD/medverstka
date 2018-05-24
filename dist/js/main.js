@@ -14121,6 +14121,11 @@ $("a").each(function () {
         $(this).addClass('active');
     }
 });
+
+$(".show-all").click(function (e) {
+    $(this).parent().addClass('show-all');
+    $(this).hide();
+});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
