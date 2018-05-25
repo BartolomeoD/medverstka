@@ -14084,19 +14084,28 @@ function closeModal() {
     $('body').css('overflow', "auto");
     var blackbg = $('#blackbg');
     blackbg.find('.close-button').remove();
-    var save = blackbg.children();
+    var save = blackbg.find('.show-modal');
+    save.removeClass('show-modal');
     blackbg.children().remove();
     blackbg.animate({
         opacity: 0
     }, 500, function (e) {
         //console.log(save);
         $('body').append(save);
-        save.css("display", "none");
-        save.css("opacity", 0);
         blackbg.remove();
     });
 }
 
+$.ajax({
+    type: 'GET',
+    url: "/how-we-works.html",
+    data: data,
+    processData: false,
+    contentType: false,
+    success: function success(data) {
+        $('.how-we-works').html(data);
+    }
+});
 $("form").on("submit", function (e) {
     var data = new FormData(this);
     e.preventDefault();
